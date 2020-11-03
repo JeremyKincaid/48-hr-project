@@ -1,8 +1,8 @@
 import React, { useState, Component, useEffect } from 'react';
 import './App.css';
+
+import Weather from './components/Weather/Weather'
 import NASA from './components/NASA/NASA';
-
-
 
 function App() {
 
@@ -39,10 +39,14 @@ function App() {
   navigator.geolocation.getCurrentPosition(success, error, options);
 
   return (
+
+    <div className="App">
       <div>
           <h3>Your GPS coordinates are { latitude }, { longitude }</h3>
           <NASA latitude={latitude} longitude={longitude} />
+          <Weather />
       </div>
+
   );
 }
 
