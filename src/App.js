@@ -1,5 +1,8 @@
+
 import React, { useState, Component, useEffect } from 'react';
+
 import './App.css';
+import Zomato from './components/ZomatoAPI/Zomato'; 
 
 import Weather from './components/Weather/Weather';
 import NASA from './components/NASA/NASA';
@@ -41,13 +44,19 @@ function App() {
   return (
 
     <div className="App">
+
+    </div>
+
       <div>
           <h3>Your GPS coordinates are { latitude }, { longitude }</h3>
           <NASA latitude={latitude} longitude={longitude} />
           <br />
           <Weather latitude={latitude} longitude={longitude} />
+          <br />
+          <Zomato />
       </div>
 </div>
+
   );
 }
 
