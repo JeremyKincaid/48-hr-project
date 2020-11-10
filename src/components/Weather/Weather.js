@@ -10,6 +10,7 @@ const Weather= (props) => {
     const [forecast, setForecast] = useState('')
 
     useEffect(() => {
+        if(props.latitude && props.longitude) {
             fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${props.latitude}&lon=${props.longitude}&units=imperial&appid=a4e08e5aa1e2b68aa9a919ac5e2043ca`
             )
             .then((res) => res.json())
@@ -22,7 +23,8 @@ const Weather= (props) => {
                 setHumidity(data.main.humidity);
                 setForecast(data.weather[0].description);
             })
-        }, )
+        }
+        }, [props.latitude, props.longitude])
 
     return (
         <div className = "Weather">
