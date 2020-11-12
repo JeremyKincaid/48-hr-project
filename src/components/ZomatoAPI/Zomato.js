@@ -8,8 +8,6 @@ const Zomato = (props) => {
     const userkey = 'e73b9594082798295a039fb4972ea346'; 
 
     const url = 'https://developers.zomato.com/api/v2.1/geocode'
-    
-
 
     const fetchData = () => {
         async function f() {
@@ -28,14 +26,14 @@ const Zomato = (props) => {
         f(); 
     }
 
-    useEffect(fetchData, [props.latitude, props.longitude]);   
+    useEffect(fetchData, [props.latitude, props.longitude]); //the array with the props in them makes sure that the useEffect fires off only when those are accurate and working 
 
 
 
     return (
         <div>
             <p>
-                {restaurants.map(r => <p> {r.restaurant.name} </p> )} 
+                {restaurants.map(r => <p> {r.restaurant.name} </p> )}     
             </p>
         </div>
     )
